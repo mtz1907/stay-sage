@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Total habitaciones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/habitaciones}">Agregar habitación</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/habitaciones/total-habitaciones}">Ver todas las habitaciones</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h1>Lista de habitaciones</h1>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tipo habitacion</th>
+            <th scope="col">Disponible</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="habitacion : ${totalHabitaciones}">
+            <td th:text="${habitacion.id}"></td>
+            <td th:text="${habitacion.tipoHabitacion}"></td>
+            <td th:text="${habitacion.disponible} ? 'Sí' : 'No'"></td>
+            <td th:text="${habitacion.costo}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/habitaciones/total-habitaciones/editar/{id}(id=${habitacion.id})}">Editar</a>
+                <a class="btn btn-danger" th:href="@{/habitaciones/total-habitaciones/eliminar/{id}(id=${habitacion.id})}">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

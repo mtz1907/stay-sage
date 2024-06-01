@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" th:href="@{imagenes/LOGO2.jpg}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+    <link rel="stylesheet" th:href="@{css/inicio.css}">
+    <link rel="stylesheet" th:href="@{css/sidebar.css}">
+    <title>Arasaka</title>
+</head>
+<body>
+    <section class="contenedor">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <section class="datos">
+            <div class="tarjeta">
+                <h3>Reservas</h3>
+                <p>Total de reservas: <span th:text="${todasReservas}"></span></p>
+            </div>
+            <div class="tarjeta">
+                <h3>Clientes</h3>
+                <p>Total de clientes: <span th:text="${todosClientes}"></span></p>
+            </div>
+            <div class="tarjeta graficoVentas">
+                <h3>Ventas</h3>
+                <div id="graficoVentas"></div>
+            </div>
+        </section>
+    </section>
+<script th:src="@{scripts/inicio.js}"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            const data = new google.visualization.DataTable();
+            data.addColumn('string', 'Topping');
+            data.addColumn('number', 'Slices');
+            data.addRows([
+                ['Mushrooms', 3],
+                ['Onions', 1],
+                ['Olives', 1],
+                ['Zucchini', 1],
+                ['Pepperoni', 2]
+            ]);
+
+            const options = {
+                'title': '¿Cuánta pizza comí anoche?',
+                'width': 400,
+                'height': 300
+            };
+
+            const chart = new google.visualization.PieChart(document.getElementById('graficoVentas'));
+            chart.draw(data, options);
+        }
+    </script>
+</body>
+</html>

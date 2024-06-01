@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{css/empleados.css}">
+    <link rel="icon" type="image/png" th:href="@{imagenes/SkyLineSuites.svg}">
+    <title>Empleados</title>
+</head>
+<body>
+    <div class="contenido">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <div class="formulario">
+            <h2>Registrar un nuevo empleado</h2>
+            <form class="registro-empleado" th:action="@{/empleados}" method="post">
+                <div class="datos-empleado">
+                    <div class="datos-empleado__item">
+                        <label for="nombreEmpleado">Nombre</label>
+                        <input type="text" id="nombreEmpleado" name="nombreEmpleado" placeholder="Nombre" required>
+                    </div>
+                    <div class="datos-empleado__item">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="text" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+                    </div>
+                    <div class="datos-empleado__item">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="datos-empleado__item">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="datos-empleado__item">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+                    </div>
+                    <div class="datos-empleado__item">
+                        <label for="fechaNacimiento">Fecha nacimiento</label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="Fecha nacimiento" required>
+                    </div>
+                    <div class="datos-empleado__item">
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad" name="Edad" placeholder="Edad" required>
+                    </div>
+                    <button type="submit">Registrar empleado</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="ultimos-empleados">
+            <h2>Últimos 10 empleados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="empleado : ${empleados}">
+                        <td th:text="${empleado.nombreEmpleado + ' ' + empleado.apellido}"></td>
+                        <td th:text="${empleado.telefono}"></td>
+                        <td th:text="${empleado.edad}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/empleados/todos-los-empleados}" class="ver-todos">Ver todos</a>
+        </div>
+    </div>
+</body>
+</html>

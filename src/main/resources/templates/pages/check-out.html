@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Check-Out</title>
+    <link rel="icon" type="image/png" th:href="@{imagenes/LOGO2.jpg}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/check-out.css}">
+</head>
+<body>
+    <section class="contenedor">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <div class="formulario">
+            <h2>Check-Out</h2>
+            <form class="registro-reserva" th:action="@{/check-out}" method="post">
+                <div class="datos-reserva">
+                    <div class="datos-reserva__item">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombreCliente" placeholder="Nombre" required>
+                    </div>
+                    <!-- Ajusta los campos según sea necesario para el check-out -->
+                    <div class="datos-reserva__item">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha" name="fechaSalida" placeholder="Fecha" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="personas">Personas</label>
+                        <input type="number" id="personas" name="cantidadPersonas" placeholder="Personas" required>
+                    </div>
+                    <button type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+        <div class="ultimos-Checkin">
+            <h2>Cliente actualeces dentro del hotel</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="empleado : ${empleados}">
+                        <td th:text="${empleado.nombreEmpleado + ' ' + empleado.apellido}"></td>
+                        <td th:text="${empleado.telefono}"></td>
+                        <td th:text="${empleado.edad}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/empleados/todos-los-empleados}" class="ver-todos">Ver todos</a>
+        </div>
+    </section>
+</body>
+</html>

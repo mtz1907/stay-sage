@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StaySageApplication<StaySage>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.skylinesuites.staysage.StaySageApplication",
+            "projectName": "StaySage",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

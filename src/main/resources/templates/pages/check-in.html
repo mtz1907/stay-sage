@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Check-In</title>
+    <link rel="icon" type="image/png" th:href="@{imagenes/SkyLineSuites.svg}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/check-out.css}">
+</head>
+<body>
+    <section class="contenedor">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <div class="formulario">
+            <h2>Check-In</h2>
+            <form class="registro-reserva" th:action="@{/check-out}" method="post">
+                <div class="datos-reserva">
+                    <div class="datos-reserva__item">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombreCliente" placeholder="Nombre" required>
+                    </div>
+                    <!-- Ajusta los campos según sea necesario para el check-out -->
+                    <div class="datos-reserva__item">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha" name="fechaSalida" placeholder="Fecha" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="personas">Personas</label>
+                        <input type="number" id="personas" name="cantidadPersonas" placeholder="Personas" required>
+                    </div>
+                    <button type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+        <div class="ultimos-checkin">
+            <h2>Últimos Check-in</h2>
+            <ul>
+                <li>
+                    <span>Nombre: Juan Pérez</span>
+                    <span>Total de personas: 2</span>
+                    <span>Fecha de entrada: 2024-04-23</span>
+                </li>
+                <li>
+                    <span>Nombre: María García</span>
+                    <span>Total de personas: 1</span>
+                    <span>Fecha de entrada: 2024-04-22</span>
+                </li>
+                <li>
+                    <span>Nombre: Carlos González</span>
+                    <span>Total de personas: 3</span>
+                    <span>Fecha de entrada: 2024-04-21</span>
+                </li>
+            </ul>
+            <a th:href="@{/ver-todos-checkin}" class="ver-todos">Ver todos</a>
+        </div>
+    </section>
+</body>
+</html>

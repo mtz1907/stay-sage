@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{css/habitaciones.css}">
+    <link rel="icon" type="image/png" th:href="@{imagenes/SkyLineSuites.svg}">
+    <title>Habitaciones</title>
+</head>
+<body>
+    <div class="contenido">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <div class="formulario">
+            <h2>Agregar Habitación</h2>
+            <form class="registro-habitacion" th:action="@{/habitaciones/agregar}" th:object="${habitacion}" method="post">
+                <div class="datos-habitacion">
+                    <div class="datos-habitacion__item">
+                        <label for="tipoHabitacion">Tipo de Habitación</label>
+                        <select id="tipoHabitacion" name="tipoHabitacion" class="disponible">
+                            <option value="SENCILLA">Sencilla</option>
+                            <option value="DOBLE">Doble</option>
+                            <option value="MULTIPLE">Múltiple</option>
+                        </select>
+                    </div>
+                    <div class="datos-habitacion__item">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" name="cantidad" th:field="*{cantidad}" required>
+                    </div>
+                    <div class="datos-habitacion__item">
+                        <label for="costo">Costo</label>
+                        <input type="number" id="costo" name="costo" th:field="*{costo}" required>
+                    </div>
+                    <button type="submit">Agregar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="ultimas-habitaciones">
+            <h2>Últimas 10 Habitaciones Agregadas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo Habitación</th>
+                        <th>Cantidad</th>
+                        <th>Costo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="habitacion : ${habitaciones}">
+                        <td th:text="${habitacion.id}"></td>
+                        <td th:text="${habitacion.tipoHabitacion}"></td>
+                        <td th:text="${habitacion.cantidad}"></td>
+                        <td th:text="${habitacion.costo}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/habitaciones/total-habitaciones}" class="ver-todas">Ver todas</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Reserva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" th:href="@{imagenes/SkyLineSuites.svg}">
+    <link rel="stylesheet" th:href="@{css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{css/reservas.css}">
+</head>
+<body>
+    <div class="contenido">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <div class="contenedor-formulario">
+            <h2>Editar Reserva</h2>
+            <form th:action="@{/reservas/total-reservaciones/editar/{id}(id=${reservacion.id})}" method="post">
+                <div class="input-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombreCliente" th:value="${reservacion.nombreCliente}" required>
+                </div>
+                <div class="input-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" th:value="${reservacion.apellido}" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" th:value="${reservacion.email}" required>
+                </div>
+                <div class="input-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" th:value="${reservacion.telefono}" required>
+                </div>
+                <div class="input-group">
+                    <label for="fechaEntrada">Fecha Entrada</label>
+                    <input type="date" id="fechaEntrada" name="fechaEntrada" th:value="${reservacion.fechaEntrada}" required>
+                </div>
+                <div class="input-group">
+                    <label for="fechaSalida">Fecha Salida</label>
+                    <input type="date" id="fechaSalida" name="fechaSalida" th:value="${reservacion.fechaSalida}" required>
+                </div>
+                <div class="input-group">
+                    <label for="personas">Personas</label>
+                    <input type="number" id="personas" name="cantidadPersonas" th:value="${reservacion.cantidadPersonas}" required>
+                </div>
+                <div class="input-group-btns">
+                    <button type="submit">Guardar Cambios</button>
+                    <a th:href="@{/reservas/total-reservaciones}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

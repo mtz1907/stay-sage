@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Editando el artículo: ' + ${articulo.nombreArticulo}"></title>
+    <link rel="icon" type="image/png" th:href="@{/imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" th:href="@{/css/editar-articulo.css}">
+</head>
+<body>
+<div class="contenedor-formulario">
+    <form class="formulario" th:action="@{/articulos/ver-todos/editar/{id}(id=${articulo.id})}"
+          th:object="${articulo}" method="post">
+        <h2 th:text="${'Editar artuculo: ' + articulo.nombreArticulo}"></h2>
+            <div class="input-group">
+                <label for="id">Id</label>
+                <input class="bloqueado"
+                       type="text"
+                       id="id"
+                       name="id"
+                       th:field="*{id}"
+                       placeholder="Id" disabled>
+            </div>
+            <div class="input-group">
+                <label for="nombreArticulo">Nombre</label>
+                <input type="text" id="nombreArticulo"
+                       name="nombreArticulo"
+                       placeholder="Sombre articulo"
+                       th:field="*{nombreArticulo}"
+                       required>
+            </div>
+            <div class="input-group">
+                <label for="cantidad">Cantidad</label>
+                <input type="text" id="cantidad"
+                       name="cantidad"
+                       placeholder="cantidad"
+                       th:field="*{cantidad}"
+                       required>
+            </div>
+            <div class="input-group">
+                <label for="descripcion">Descripción</label>
+                <input type="text" id="descripcion"
+                       name="descripcion"
+                       placeholder="Descripción"
+                       th:field="*{descripcion}"
+                       required>
+            <div class="input-group-btns">
+                <a th:href="@{/articulos/ver-todos}">Cancelar</a>
+                <button type="submit">Editar</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

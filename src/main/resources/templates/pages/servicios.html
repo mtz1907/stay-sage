@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es-CO" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" th:src="@{/imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/servicios.css}">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css}" rel="stylesheet" />
+    <title>Servicios - Arasaka</title>
+</head>
+<body>
+<header>
+    <a th:href="@{/}" class="marca">Arasaka</a>
+    <div class="menu-btn"></div>
+    <a href="#" class="icono"></a>
+    <div class="navegacion">
+        <div class="navegacion-items">
+            <a th:href="@{/ingresar}">Iniciar sesión</a>
+            <a th:href="@{/catalogo}">Catálogo de habitaciones</a>
+            <a th:href="@{/servicios}">Servicios disponibles</a>
+            <a th:href="@{/acerca}">Acerca de nosotros</a>
+        </div>
+    </div>
+</header>
+<section class="banner">
+    <div class="video-container">
+        <video class="video-bg activo" th:src="@{/videos/Bg2.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg1.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg3.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg4.mp4}" autoplay loop muted></video>
+    </div>
+</section>
+<section class="servicios">
+    <h1>Servicios Disponibles</h1>
+    <div class="servicio">
+        <h2>Recepción 24 horas</h2>
+        <p>Atención y asistencia al huésped durante todo el día y la noche, asegurando una llegada y salida sin complicaciones.</p>
+    </div>
+    <div class="servicio">
+        <h2>Wi-Fi gratuito</h2>
+        <p>Acceso a internet de alta velocidad en todas las áreas del hotel, incluyendo habitaciones y espacios comunes.</p>
+    </div>
+    <div class="servicio">
+        <h2>Desayuno incluido</h2>
+        <p>Comida matutina disponible sin costo adicional, que puede incluir opciones continentales o buffet.</p>
+    </div>
+    <div class="servicio">
+        <h2>Servicio de habitaciones</h2>
+        <p>Disponibilidad de comidas y bebidas servidas directamente en la habitación, ideal para mayor comodidad.</p>
+    </div>
+    <div class="servicio">
+        <h2>Estacionamiento</h2>
+        <p>Espacio seguro y gratuito o de pago para el aparcamiento de vehículos de los huéspedes.</p>
+    </div>
+    <div class="servicio">
+        <h2>Gimnasio</h2>
+        <p>Instalaciones equipadas con máquinas de ejercicio y pesas para mantener la rutina de fitness.</p>
+    </div>
+    <div class="servicio">
+        <h2>Spa</h2>
+        <p>Servicios de bienestar y relajación que pueden incluir masajes, tratamientos faciales y corporales.</p>
+    </div>
+    <div class="servicio">
+        <h2>Piscina</h2>
+        <p>Área de natación disponible para los huéspedes, que puede ser interior o exterior, climatizada o no.</p>
+    </div>
+    <div class="servicio">
+        <h2>Restaurante</h2>
+        <p>Lugar donde se sirven comidas y cenas con un menú variado que puede incluir platos locales e internacionales.</p>
+    </div>
+    <div class="servicio">
+        <h2>Salas de reuniones</h2>
+        <p>Espacios equipados con tecnología para eventos corporativos, conferencias o reuniones privadas.</p>
+    </div>
+    <div class="servicio">
+        <h2>Traslado al aeropuerto</h2>
+        <p>Servicio de transporte desde y hacia el aeropuerto, facilitando la llegada y salida de los huéspedes.</p>
+    </div>
+    <div class="servicio">
+        <h2>Conserjería</h2>
+        <p>Personal especializado en asistir con reservas, recomendaciones, información turística y otras necesidades del huésped.</p>
+    </div>
+</section>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('.video-bg');
+        let currentVideoIndex = 0;
+
+        function playNextVideo() {
+            videos[currentVideoIndex].classList.remove("activo");
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            videos[currentVideoIndex].classList.add("activo");
+        }
+
+        videos.forEach(video => {
+            video.addEventListener('ended', playNextVideo);
+        });
+
+        setInterval(playNextVideo, 10000); // Cambiar el video cada 10 segundos
+    });
+</script>
+</body>
+</html>

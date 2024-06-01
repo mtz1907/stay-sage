@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar habitación</title>
+    <link rel="stylesheet" th:href="@{/css/editar-habitacion.css}">
+    <link rel="icon" type="image/png" th:href="@{/imagenes/LOGO2.jpg}">
+</head>
+<body>
+<div class="contenedor-formulario">
+    <form class="formulario" th:action="@{/habitaciones/total-habitaciones/editar/{id}(id=${habitacion.id})}"
+          th:object="${habitacion}" method="post">
+        <h2 th:text="${'Editar habitacion tipo: ' + habitacion.tipoHabitacion}"></h2>
+        <div class="input-group">
+            <label for="id">Id</label>
+            <input class="bloqueado"
+                   type="text"
+                   id="id"
+                   name="id"
+                   th:field="*{id}"
+                   placeholder="Id" disabled>
+        </div>
+        <div class="input-group">
+            <label for="tipoHabitacion">Tipo habitación</label>
+            <input type="text" id="tipoHabitacion"
+                   name="tipoHabitacion"
+                   placeholder="Tipo habitación"
+                   th:field="*{tipoHabitacion}"
+                   required>
+        </div>
+        <div class="input-group">
+            <label for="disponible">Disponible</label>
+            <input type="text" id="disponible"
+                   name="disponible"
+                   placeholder="Disponible"
+                   th:field="*{disponible}"
+                   required>
+        </div>
+        <div class="input-group">
+            <label for="costo">Costo</label>
+            <input type="text" id="costo"
+                   name="costo"
+                   placeholder="Costo"
+                   th:field="*{costo}"
+                   required>
+        </div>
+        <div class="input-group">
+            <div class="articulos-lista">
+                <label for="articulos">Artículos</label>
+                <select th:field="*{articulos}" multiple="multiple" id="articulos">
+                    <option value="">-- Selecciona los articulos --</option>
+                    <option th:each="articulo : ${todosArticulos}"
+                            th:value="${articulo.id}"
+                            th:text="${articulo.nombreArticulo}"
+                            th:title="${articulo.nombreArticulo}">
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="input-group-btns">
+            <a th:href="@{/habitaciones/total-habitaciones}">Cancelar</a>
+            <button type="submit">Editar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

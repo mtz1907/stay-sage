@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<aside th:fragment="menu_lateral">
+    <div class="barra-lateral">
+        <div class="logo">
+            <img th:src="@{imagenes/LOGO2.svg}" alt="logo">
+            <h2>Arasaka</h2>
+        </div>
+        <div class="cerrar" id="btnCerrar">
+            <span class="material-symbols-outlined">close</span>
+        </div>
+    </div>
+
+
+    <div class="barra-opciones">
+        <a href="/inicio" th:classappend="${pagina == 'inicio' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">home</span>
+            <h3>Inicio</h3>
+        </a>
+        <a href="/reservas" th:classappend="${pagina == 'reservas' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">calendar_add_on</span>
+            <h3>Reservas</h3>
+        </a>
+        <a href="/empleados" th:classappend="${pagina == 'empleados' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">group</span>
+            <h3>Empleados</h3>
+        </a>
+        <a href="/articulos" th:classappend="${pagina == 'articulos' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">playlist_add_circle</span>
+            <h3>Artículos</h3>
+        </a>
+        <a href="/habitaciones" th:classappend="${pagina == 'habitaciones' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">add_home_work</span>
+            <h3>Habitaciones</h3>
+        </a>
+        <a href="/check-in" th:classappend="${pagina == 'check-in' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">person_add</span>
+            <h3>Check-In</h3>
+        </a>
+        <a href="/check-out" th:classappend="${pagina == 'check-out' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">person_remove</span>
+            <h3>Check-Out</h3>
+        </a>
+        <a href="/reportes" th:classappend="${pagina == 'reportes' ? 'activo' : ''}">
+            <span class="material-symbols-outlined">export_notes</span>
+            <h3>Reportes</h3>
+        </a>
+        <a href="/ingresar">
+            <span class="material-symbols-outlined">logout</span>
+            <h3>Salir</h3>
+        </a>
+    </div>
+</aside>
+</body>
+</html>

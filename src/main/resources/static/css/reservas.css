@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* Variables de colores y estilos */
+:root {
+    --color-dark: #333;
+    --color-white: #fff;
+    --color-background: #f0f0f0;
+    --color-info-dark: #0069D9; /* Azul info */
+    --color-primary: #007BFF; /* Azul primario */
+    --border-radius-1: 5px;
+    --box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+
+.contenido {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 12rem auto 23rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+    height: 95vh;
+    width: 40vw;
+    position: relative;
+    top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.formulario h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 1.5rem 0 1rem 1.5rem;
+    text-align: center;
+    color: var(--color-info-dark);
+}
+
+.formulario .registro-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.3rem 1.5rem;
+}
+
+.formulario .registro-reserva .datos-reserva {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formulario .registro-reserva .datos-reserva .datos-reserva__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formulario .registro-reserva .datos-reserva .datos-reserva__item label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.formulario .registro-reserva .datos-reserva .datos-reserva__item input {
+    border: 1px solid var(--color-info-dark);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.formulario .registro-reserva .datos-reserva button {
+    border: 1px solid var(--color-info-dark);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: var(--color-info-dark);
+    color: var(--color-white);
+    cursor: pointer;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.formulario .registro-reserva .datos-reserva button:hover {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+.ultimas-reservas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.3rem 1.5rem;
+    background-color: #fff; /* Cambiado */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Cambiado */
+    border-radius: 15px;
+    height: 95vh;
+    width: 40vw;
+    position: relative;
+    top: 1.5rem;
+    transition: all 0.3s ease;
+    right: 18rem;
+}
+
+.ultimas-reservas h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 1.5rem 0 1rem 1.5rem;
+    text-align: center;
+    color: #0069D9; /* Cambiado */
+}
+
+.ultimas-reservas table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ultimas-reservas table thead {
+    background-color: #0069D9; /* Cambiado */
+    color: #fff; /* Cambiado */
+}
+
+.ultimas-reservas table thead th {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.ultimas-reservas table tbody tr {
+    text-align: center;
+}
+
+.ultimas-reservas table tbody tr td {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.ver-todas {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff; /* Cambiado */
+    text-decoration: none;
+    background: linear-gradient(to right, #0069D9 0%, #0069D9 100%) repeat-x 0 100%;
+    margin: 0 auto;
+    padding: 0.5rem 0.7rem;
+    border-radius: 5px; /* Cambiado */
+    width: 30%;
+}
+
+.ver-todas:hover {
+    background: linear-gradient(to right, #007BFF 0%, #007BFF 100%) repeat-x 0 100%;
+}

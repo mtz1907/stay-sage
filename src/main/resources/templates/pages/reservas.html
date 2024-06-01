@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="icon" type="image/png" th:href="@{imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" th:href="@{css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{css/reservas.css}">
+</head>
+<body>
+    <div class="contenido">
+        <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+        <div class="formulario">
+            <h2>Registrar una nueva reserva</h2>
+            <form class="registro-reserva" th:action="@{/reservas}" method="post">
+                <div class="datos-reserva">
+                    <div class="datos-reserva__item">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombreCliente" placeholder="Nombre" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="fechaEntrada">Fecha Entrada</label>
+                        <input type="date" id="fechaEntrada" name="fechaEntrada" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="fechaSalida">Fecha Salida</label>
+                        <input type="date" id="fechaSalida" name="fechaSalida" required>
+                    </div>
+                    <div class="datos-reserva__item">
+                        <label for="personas">Personas</label>
+                        <input type="number" id="personas" name="cantidadPersonas" placeholder="Personas" required>
+                    </div>
+                    <button type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="ultimas-reservas">
+            <h2>Últimas 10 reservas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre titular</th>
+                        <th>Fecha entrada</th>
+                        <th>Fecha salida</th> <!-- Añadido -->
+                        <th>Total personas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="reserva : ${reservas}">
+                        <td th:text="${reserva.nombreCliente} + ' ' + ${reserva.apellido}"></td>
+                        <td th:text="${reserva.fechaEntrada}"></td>
+                        <td th:text="${reserva.fechaSalida}"></td> <!-- Añadido -->
+                        <td th:text="${reserva.cantidadPersonas}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/reservas/total-reservaciones}" class="ver-todas">Ver todas</a>
+        </div>
+    </div>
+</body>
+</html>

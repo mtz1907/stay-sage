@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es-CO" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" th:src="@{imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" th:href="@{css/index.css}">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css}" rel="stylesheet" />
+    <title>Inicio - Arasaka</title>
+</head>
+<body>
+    <header>
+        <a th:href="@{/}" class="marca">Arasaka</a>
+        <div class="menu-btn"></div>
+            <a href="#" class="icono"></a>
+        <div class="navegacion">
+            <div class="navegacion-items">
+                <a th:href="@{/ingresar}">Iniciar sesión</a>
+                <a th:href="@{/catalogo}">Catálogo de habitaciones</a>
+                <a th:href="@{/servicios}">Servicios disponibles</a>
+                <a th:href="@{/acerca}">Acerca de nosotros</a>
+            </div>
+        </div>
+    </header>
+    <section class="inicio">
+        <video class="video-bg activo" th:src="@{videos/Bg2.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{videos/Bg1.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{videos/Bg3.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{videos/Bg4.mp4}" autoplay loop muted></video>
+        <div class="contenido">
+            <h1>Arasaka.<br><span>Hotel de lujo</span></h1>
+            <p>Hotel Arasaka es un hotel de lujo ubicado en la ciudad de Cartagena, Colombia.
+                El hotel cuenta con 5 estrellas y es reconocido por su servicio de alta calidad
+                y sus habitaciones de lujo.
+            </p>
+            <a href="#">Reservar</a>
+        </div>
+        <div class="iconos-redes">
+            <a href="#" class="icono"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icono"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icono"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="bg-navegacion">
+            <div class="nav-btn activo"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        const btns = document.querySelectorAll(".nav-btn");
+        const videos = document.querySelectorAll(".video-bg");
+
+        var navegacionVideos = function (manual){
+            btns.forEach((btn) => {
+                btn.classList.remove("activo");
+            });
+            videos.forEach((video) => {
+                video.classList.remove("activo");
+            });
+
+            btns[manual].classList.add("activo");
+            videos[manual].classList.add("activo");
+        }
+
+        btns.forEach((btn, i)=>{
+            btn.addEventListener("click", () =>{
+                navegacionVideos(i);
+            });
+        });
+        // Agregamos que cada 10 segundos se cambie el video automáticamente
+        var slideVideo = function(){
+            var manual = 0;
+            setInterval(() => {
+                btns.forEach((btn) => {
+                    btn.classList.remove("activo");
+                });
+                videos.forEach((video) => {
+                    video.classList.remove("activo");
+                });
+
+                btns[manual].classList.add("activo");
+                videos[manual].classList.add("activo");
+
+                manual++;
+                if(manual > 3){
+                    manual = 0;
+                }
+            }, 10000);
+        }
+        slideVideo();
+    </script>
+</body>
+</html>

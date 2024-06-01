@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos los artículos</title>
+    <link rel="icon" type="image/png" th:href="@{imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" th:href="@{/inicio}">Inicio</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/articulos}">Nuevo artículo</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h1>Lista de artículos</h1>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre artículo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Operaciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="articulo : ${articulos}">
+            <td th:text="${articulo.id}"></td>
+            <td th:text="${articulo.nombreArticulo}"></td>
+            <td th:text="${articulo.cantidad}"></td>
+            <td th:text="${articulo.descripcion}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/articulos/ver-todos/editar/{id}(id=${articulo.id})}">Editar</a>
+                <a class="btn btn-danger" th:href="@{/articulos/ver-todos/eliminar/{id}(id=${articulo.id})}">Eliminar</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

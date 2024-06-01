@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Articulos</title>
+    <link rel="icon" type="image/png" th:href="@{imagenes/LOGO2.jpg}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/articulos.css}">
+</head>
+<body>
+<div class="contenedor">
+    <div th:replace="~{fragments/sidebar :: menu_lateral}"></div>
+    <div class="formulario">
+        <h2>Registrar una nueva reserva</h2>
+        <form class="registro-reserva" th:action="@{/articulos}" method="post">
+            <div class="datos-reserva">
+                <div class="datos-reserva__item">
+                    <label for="nombreArticulo">Nombre artículo</label>
+                    <input type="text" id="nombreArticulo" name="nombreArticulo" placeholder="Nombre artículo" required>
+                </div>
+                <div class="datos-reserva__item">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="text" id="cantidad" name="cantidad" placeholder="Cantidad" required>
+                </div>
+                <div class="datos-reserva__item">
+                    <label for="descripcion">Descripcion</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripción" required></textarea>
+                </div>
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="ultimas-reservas">
+        <h2>Últimos artículos</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Nombre del artículo</th>
+                <th>Cantidad</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="articulo : ${articulos}">
+                <td th:text="${articulo.nombreArticulo}"></td>
+                <td th:text="${articulo.cantidad}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/articulos/ver-todos}" class="ver-todas">Ver todos</a>
+    </div>
+</div>
+</body>
+</html>

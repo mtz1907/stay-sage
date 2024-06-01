@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es-CO" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" th:src="@{/imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/acerca.css}">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css}" rel="stylesheet" />
+    <title>Acerca de Nosotros - Arasaka</title>
+</head>
+<body>
+<header>
+    <a th:href="@{/}" class="marca">Arasaka</a>
+    <div class="menu-btn"></div>
+    <a href="#" class="icono"></a>
+    <div class="navegacion">
+        <div class="navegacion-items">
+            <a th:href="@{/ingresar}">Iniciar sesión</a>
+            <a th:href="@{/catalogo}">Catálogo de habitaciones</a>
+            <a th:href="@{/servicios}">Servicios disponibles</a>
+            <a th:href="@{/acerca}">Acerca de nosotros</a>
+        </div>
+    </div>
+</header>
+<section class="banner">
+    <div class="video-container">
+        <video class="video-bg activo" th:src="@{/videos/Bg2.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg1.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg3.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg4.mp4}" autoplay loop muted></video>
+    </div>
+</section>
+<section class="acerca">
+    <div class="recuadro">
+        <img src="/imagenes/LOGO2.svg" alt="Logo del Hotel Arasaka" class="logo">
+        <h1>Historia del Hotel Arasaka</h1>
+        <p>
+            Ubicado en el corazón de la histórica Cartagena de Indias, Colombia, el Hotel Arasaka se erige como un emblema de lujo y sofisticación. Fundado en 1985, este hotel de cinco estrellas ha sido un refugio para viajeros exigentes que buscan experimentar lo mejor de la hospitalidad colombiana.
+        </p>
+        <p>
+            Desde su apertura, el Hotel Arasaka ha sido conocido por su impecable servicio y sus instalaciones de clase mundial. El edificio, una mezcla elegante de arquitectura colonial y moderna, refleja la rica herencia cultural de Cartagena, mientras ofrece todas las comodidades y tecnologías de última generación.
+        </p>
+        <p>
+            A lo largo de los años, Arasaka ha acogido a dignatarios, celebridades y turistas de todo el mundo, siempre esforzándose por brindar una experiencia inolvidable. Su spa de lujo, restaurantes gourmet, y la icónica piscina infinita con vistas panorámicas del mar Caribe son solo algunas de las características que hacen de este hotel un destino exclusivo.
+        </p>
+        <p>
+            En el Hotel Arasaka, cada detalle está diseñado para ofrecer a sus huéspedes una estancia memorable, combinando la autenticidad de la cultura local con el confort y la elegancia internacional.
+        </p>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-CO" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" th:src="@{/imagenes/LOGO2.jpg}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/catalogo.css}">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css}" rel="stylesheet" />
+    <title>Catálogo - Arasaka</title>
+</head>
+<body>
+<header>
+    <a th:href="@{/}" class="marca">Arasaka</a>
+    <div class="menu-btn"></div>
+    <a href="#" class="icono"></a>
+    <div class="navegacion">
+        <div class="navegacion-items">
+            <a th:href="@{/ingresar}">Iniciar sesión</a>
+            <a th:href="@{/catalogo}">Catálogo de habitaciones</a>
+            <a th:href="@{/servicios}">Servicios disponibles</a>
+            <a th:href="@{/acerca}">Acerca de nosotros</a>
+        </div>
+    </div>
+</header>
+<section class="banner">
+    <div class="video-container">
+        <video class="video-bg activo" th:src="@{/videos/Bg2.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg1.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg3.mp4}" autoplay loop muted></video>
+        <video class="video-bg" th:src="@{/videos/Bg4.mp4}" autoplay loop muted></video>
+    </div>
+</section>
+<section class="catalogo">
+    <h1>Catálogo de Habitaciones</h1>
+    <div class="habitacion">
+        <h2>Habitación Sencilla</h2>
+        <img src="/imagenes/sencilla.jpg" alt="Habitación Sencilla">
+        <p>La habitación sencilla ofrece una cómoda cama individual, perfecta para viajeros solitarios o parejas que buscan una estancia acogedora y funcional.</p>
+        <a href="#" class="btn">Ver más</a>
+    </div>
+    <div class="habitacion">
+        <h2>Habitación Doble</h2>
+        <img src="/imagenes/doble.jpg" alt="Habitación Doble">
+        <p>La habitación doble cuenta con una espaciosa cama doble, ideal para parejas que desean disfrutar de un alojamiento confortable y relajante.</p>
+        <a href="#" class="btn">Ver más</a>
+    </div>
+    <div class="habitacion">
+        <h2>Habitación Múltiple</h2>
+        <img src="/imagenes/multiple.jpg" alt="Habitación Múltiple">
+        <p>La habitación múltiple es perfecta para grupos o familias, con múltiples camas y espacio suficiente para garantizar una estancia placentera para todos los huéspedes.</p>
+        <a href="#" class="btn">Ver más</a>
+    </div>
+</section>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('.video-bg');
+        let currentVideoIndex = 0;
+
+        function playNextVideo() {
+            videos[currentVideoIndex].classList.remove("activo");
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            videos[currentVideoIndex].classList.add("activo");
+        }
+
+        videos.forEach(video => {
+            video.addEventListener('ended', playNextVideo);
+        });
+
+        setInterval(playNextVideo, 10000); // Cambiar el video cada 10 segundos
+    });
+</script>
+</body>
+</html>

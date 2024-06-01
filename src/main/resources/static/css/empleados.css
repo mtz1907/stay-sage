@@ -1,0 +1,190 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+html {
+    font-size: 14px;
+}
+:root {
+    --color-dark: #333;
+    --color-white: #fff;
+    --color-background: #f0f0f0;
+    --color-info-dark: #0069D9; /* Azul info */
+    --color-primary: #007BFF; /* Azul primario */
+    --border-radius-1: 5px;
+    --box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.contenido {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 12rem auto 23rem ;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+    height: 95vh;
+    width: 40vw;
+    position: relative;
+    top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.formulario h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 1rem 0 1rem 1.5rem;
+    text-align: center;
+    color: var(--color-info-dark);
+
+}
+
+.formulario .registro-empleado {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.3rem 1.5rem;
+}
+
+.formulario .registro-empleado .datos-empleado {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formulario .registro-empleado .datos-empleado .datos-empleado__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+
+.formulario .registro-empleado .datos-empleado .datos-empleado__item label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.formulario .registro-empleado .datos-empleado .datos-empleado__item input {
+    border: 1px solid var(--color-info-dark);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.formulario .registro-empleado .datos-empleado .datos-empleado__item select {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--color-info-dark);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.formulario .registro-empleado .datos-empleado button {
+    border: 1px solid var(--color-info-dark);
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: var(--color-info-dark);
+    color: var(--color-white);
+    cursor: pointer;
+    width: 35%;
+    margin: 0 auto;
+
+}
+
+.formulario .registro-empleado .datos-empleado button:hover {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+}
+
+.ultimos-empleados {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.3rem 1.5rem;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+    height: 95vh;
+    width: 40vw;
+    position: relative;
+    top: 1.5rem;
+    transition: all 0.3s ease;
+    right: 18rem;
+}
+
+.ultimos-empleados h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 1.5rem 0 1rem 1.5rem;
+    text-align: center;
+    color: var(--color-info-dark);
+}
+
+.ultimos-empleados table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.ultimos-empleados table thead {
+    background-color: var(--color-info-dark);
+    color: var(--color-white);
+}
+
+.ultimos-empleados table thead th {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.ultimos-empleados table tbody tr {
+    text-align: center;
+}
+
+.ultimos-empleados table tbody tr td {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.ultimos-empleados a {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(to right, var(--color-info-dark) 0%, var(--color-info-dark) 100%) repeat-x 0 100%;
+    margin: 0 auto;
+    padding: 0.5rem 0.7rem;
+    border-radius: var(--border-radius-1);
+    width: 30%;
+}
+
+.ultimos-empleados a:hover {
+    background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 100%) repeat-x 0 100%;
+}
+
+
